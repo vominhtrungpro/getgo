@@ -9,6 +9,10 @@ import (
 	"github.com/kytruong0712/getgo/api/internal/httpserver"
 )
 
+// CreateResponse ...
+type CreateResponse struct {
+}
+
 // Create creates new product
 func (h Handler) Create() http.HandlerFunc {
 	return httpserver.HandlerErr(func(w http.ResponseWriter, r *http.Request) error {

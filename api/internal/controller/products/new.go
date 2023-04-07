@@ -9,7 +9,10 @@ import (
 
 // Controller represents the specification of this pkg
 type Controller interface {
+	// Create creates new product
 	Create(context.Context, CreateInput) (model.Product, error)
+	// GetWithAssociateCategories gets single product with associate categories
+	GetWithAssociateCategories(context.Context, string) (model.ProductWithCategories, error)
 }
 
 // New returns an implementation instance which satisfying Controller

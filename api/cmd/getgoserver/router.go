@@ -31,9 +31,11 @@ func (rtr router) public(r chi.Router) {
 
 		// products
 		r.Group(func(r chi.Router) {
-			pattern := prefix + "/products/"
+			pattern := prefix + "/products"
+			prodImpl := products.New(rtr.productCtrl)
 
-			r.Post(pattern, products.New(rtr.productCtrl).Create())
+			r.Get(pattern+"/{extID}", prodImpl.GetWithAssociateCategories())
+			r.Post(pattern, prodImpl.Create())
 		})
 	})
 }

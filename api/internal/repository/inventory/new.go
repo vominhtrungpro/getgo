@@ -7,8 +7,10 @@ import (
 )
 
 type Repository interface {
-	// specification
+	// CreateProduct inserts a record to product table
 	CreateProduct(context.Context, model.Product) (model.Product, error)
+	// GetProductWithCategories retrieves specific product with list of categories by extID
+	GetProductWithCategories(context.Context, string) (model.ProductWithCategories, error)
 }
 
 func New(db *sql.DB) Repository {

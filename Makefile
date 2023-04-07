@@ -11,6 +11,9 @@ API_CONTAINER ?= api
 api-setup: create-db db-migrate sqlboiler-psql
 api-run:
 	docker compose up -d ${API_CONTAINER}
+api-run-dev:
+	cd api && sh -c "go run cmd/getgoserver/main.go cmd/getgoserver/router.go"
+
 
 # ----------------------------
 # database Methods
