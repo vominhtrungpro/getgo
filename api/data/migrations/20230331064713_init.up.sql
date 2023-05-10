@@ -33,3 +33,16 @@ CREATE TABLE IF NOT EXISTS public.product_categories
     created_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now(),
     updated_at  TIMESTAMP WITH TIME ZONE NOT NULL DEFAULT now()
     );
+
+Create TABLE IF NOT EXISTS public.users
+(
+    id BIGINT PRIMARY KEY,
+    external_id TEXT NOT NULL CONSTRAINT users_external_id_check CHECK (external_id <> ''::text),
+    username TEXT NOT NULL CONSTRAINT users_username_check CHECK (username <> ''::text),
+    password TEXT NOT NULL CONSTRAINT users_password_check CHECK (password <> ''::text),
+    email TEXT NOT NULL CONSTRAINT users_email_check CHECK (email <> ''::text),
+    age BIGINT NOT NULL CONSTRAINT users_age_check CHECK (age > 0),
+    refreshtoken TEXT,
+    refreshtokenexpiretime TIMESTAMP WITH TIME ZONE
+);
+CREATE UNIQUE INDEX IF NOT EXISTS users_uidx_external_id ON public.products (external_id);

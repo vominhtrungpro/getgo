@@ -1,0 +1,51 @@
+type Query {
+  character(id:ID!): Character
+  pogues: [Character]!
+  kooks: [Character]!
+  getalluser : [User]!
+  getuserbyid(id:ID!): User!
+  getuserbyusername(username:String!): User!
+  deleteuser(id:ID!): User
+}
+
+type Mutation {
+  upsertCharacter(input: CharacterInput!): Character!
+  createuser(input:CreateUserInput!): User
+  updateuser(input:UpdateUserInput!): User
+}
+type Character {
+  id: ID!
+  name: String!
+}
+
+input CharacterInput {
+  name: String!
+  id: String
+}
+
+type User {
+  id: ID!
+  externalid: String!
+  username: String!
+  password: String!
+  email: String!
+  age: Int!
+}
+
+input CreateUserInput {
+  username: String!
+  password: String!
+  email: String!
+  age: Int!
+}
+
+input UpdateUserInput {
+  id: ID!
+  externalid: String!
+  username: String!
+  password: String!
+  email: String!
+  age: Int!
+}
+
+

@@ -50,23 +50,23 @@ func validate(input products.CreateInput) error {
 	return nil
 }
 
-func validateAll(input products.CreateInput) []error {
-	var errs []error
-	if strings.TrimSpace(input.Name) == "" {
-		errs = append(errs, errInvalidName)
-	}
+// func validateAll(input products.CreateInput) []error {
+// 	var errs []error
+// 	if strings.TrimSpace(input.Name) == "" {
+// 		errs = append(errs, errInvalidName)
+// 	}
 
-	if strings.TrimSpace(input.Description) == "" {
-		errs = append(errs, errInvalidDescription)
-	}
+// 	if strings.TrimSpace(input.Description) == "" {
+// 		errs = append(errs, errInvalidDescription)
+// 	}
 
-	if input.Price <= 0 {
-		errs = append(errs, errInvalidPrice)
-	}
+// 	if input.Price <= 0 {
+// 		errs = append(errs, errInvalidPrice)
+// 	}
 
-	if len(errs) > 0 {
-		return errs
-	}
+// 	if len(errs) > 0 {
+// 		return errs
+// 	}
 
-	return nil
-}
+// 	return nil
+// }

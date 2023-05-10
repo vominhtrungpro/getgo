@@ -6,13 +6,13 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/pkg/errors"
 	_ "github.com/lib/pq"
+	"github.com/pkg/errors"
 )
 
 func Connect(_ context.Context) (*sql.DB, error) {
 	// `database` host is container which already defined in docker compose
-	conn, err := sql.Open("postgres", "host=db user=postgres password=postgres dbname=getgo-pg port=5432 sslmode=disable")
+	conn, err := sql.Open("postgres", "host=localhost user=postgres password=tin14091998 dbname=getgo-tg port=5432 sslmode=disable")
 	if err != nil {
 		fmt.Fprintf(os.Stderr, "Unable to connect to database: %v\n", err)
 		os.Exit(1)

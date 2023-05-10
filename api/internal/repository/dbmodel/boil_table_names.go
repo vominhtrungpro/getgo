@@ -8,9 +8,11 @@ var TableNames = struct {
 	ProductCategories string
 	Products          string
 	SchemaMigrations  string
+	Users             string
 }{
 	Categories:        "categories",
 	ProductCategories: "product_categories",
 	Products:          "products",
 	SchemaMigrations:  "schema_migrations",
+	Users:             "users",
 }
